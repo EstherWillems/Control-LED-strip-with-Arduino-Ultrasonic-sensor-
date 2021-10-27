@@ -16,21 +16,43 @@ In this mini-project, we will be combining an ultrasonic distance sensor and an 
 
 1. Open a new Arduino sketch.
 2. Navigate to: Tools
-3. Select the Arduino UNO at Arduino AVR board.
-![select board](https://github.com/EstherWillems/IoT-Tech-Opdr-2/blob/main/1.png)
+3. Select the Arduino UNO at Arduino AVR board:
+![select board](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/1.png)
 
 
-Hook your Arduino UNO on to your laptop via USB 
-Upload an empty sketch onto your board to empty the UNO. Problem: At this step I got a error. There was a problem uploading to the board. Solution: I did not select the right port, it needed to go to the USB port.  2/3/4
+4. Hook your Arduino UNO on to your laptop via USB 
+5. Upload an empty sketch onto your board to empty the UNO. 
+Problem I ran into: At this step I got a error. There was a problem uploading to the board. This is the error i got:
+![problem](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/2.png)
 
-ADD THE LED
-Connect your LED strip to the UNO. Here I hesitated a bit, I did not know how to get the LED connected on the board.The an idea came up, I have lots of jumper wires! FOTO's
-Connect the jumper wires from the LED to the UNO going:
-LED GND to GDN board
-LED 5V+ to 5V Board
-LED Din to Pin number 2 foto
-Now lets see if the hardware is connected right by uploading code:
+The solution: I did not select the right port, it needed to go to the USB port. The one selected here is the ne i needed:
+![fiks](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/3.png)
 
+
+### Steps: Add the LED strip
+
+1. Connect your LED strip to the UNO. Here I hesitated a bit, I did not know how to get the LED connected on the board. Then a idea came up, I have lots of jumper wires!
+
+The wrong ends that cannot connect to the board by itself:
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/5.jpg)
+
+
+
+Now with the jumperwires connected, the right ends!
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/6.jpg)
+
+
+2. Now, connect the jumper wires from the LED to the UNO going:
+- LED GND to GDN board
+- LED 5V+ to 5V Board
+- LED Din to Pin number 2
+
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/8.jpg)
+
+
+3. Now lets see if the hardware is connected right by uploading the code:
+
+```
 #include <Adafruit_NeoPixel.h>
 
 #define PIN 2 // Here is where the LED is connected to the Arduino UNO
@@ -71,30 +93,36 @@ void loop() {
 
     delay(DELAYVAL); // Pause before next pass through loop
   }
-}
+} 
+```
 
+4. It works! The LED connection is succesfull
 
-FOTO VAN DAT HET WERKT
-
-
-
-
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/9.jpg)
 
 
 
-ADD THE ULTRASONIC SENSOR
-Get extra jumper wires, breadboard and the sensor for application
-For now, detach the LED strip
-Attach the Sensor to the breadboard and 4 jumper wires from the sensor to:
-Echo to Pin 13
-Trig to Pin 12
-VCC to 5V
-GND to GND
-Get the LED strip and attach 
-GND to positive side of breadboard
-5V to negative side off breadboard
-Din to the selected pin, witch will be Pin 2
-Upload the code and see what happens
+### Steps: Add the Ultrasonic Sensor
+
+1. Get extra jumper wires, breadboard and the sensor for application
+2. For now, detach the LED strip
+3. Attach the Sensor to the breadboard and 4 jumper wires from the sensor to:
+- Echo to Pin 13
+- Trig to Pin 12
+- VCC to 5V
+- GND to GND
+4. et the LED strip and attach:
+- GND to positive side of breadboard
+- 5V to negative side off breadboard
+- Din to the selected pin, witch will be Pin 2
+
+It will look something like this:
+
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/10.jpg)
+
+5. Upload the code:
+
+```
 // define the sensor and the LED strip
 const int echo = 13;
 const int trig = 12;
@@ -132,11 +160,18 @@ Serial.println(distance);
   }
 
 }
+```
 
+## Steps: Try the singel LED instead of LED strip
 
-TRY SINGEL LED
 The LED strip did not work, sadly I think it has something to do with the coding. I am not sure how to get the LED strip in the code without using NeoPixel library or something. But, don’t give up! I want to have something responding to the sensor. 
-Take a single LED and attach it to the breadboard 
-Take the ohm receptor and connect the sides of the breadboard
-Insert the jumper wires dn attach the jumper wire to the pin that’s it declared in the code, witch is now still Pin2
-Upload the code and see, It works! 
+
+1. Take a single LED and attach it to the breadboard 
+2. Take the ohm receptor and connect the sides of the breadboard, it will look something like this:
+
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/11.jpg)
+
+4. Insert the jumper wires andn attach the jumper wire to the pin that’s it declared in the code, witch is now still Pin2
+Upload the code again and see, It works! 
+
+![wrong ends](https://github.com/EstherWillems/Control-LED-strip-with-Arduino-Ultrasonic-sensor-/blob/main/12.jpg)

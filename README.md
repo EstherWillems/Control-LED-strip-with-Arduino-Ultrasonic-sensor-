@@ -17,7 +17,7 @@ In this mini-project, we will be combining an ultrasonic distance sensor and an 
 1. Open a new Arduino sketch.
 2. Navigate to: Tools
 3. Select the Arduino UNO at Arduino AVR board.
-
+![select board](https://github.com/EstherWillems/IoT-Tech-Opdr-2/blob/main/1.png)
 
 
 Hook your Arduino UNO on to your laptop via USB 
